@@ -9,11 +9,12 @@ import { HiMiniBars3 } from "react-icons/hi2";
 import { FaXmark } from "react-icons/fa6";
 import MenuOverlay from './MenuOverlay';
 import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 const navLinks = [
   { href: '/', title: "Home" },
   { href: '/Shop', title: "Shop" },
   { href: '/', title: "About" },
-  { href: '/', title: "Contact" },
+  { href: '/contact', title: "Contact" },
 ];
 
 const Navbar = () => {
@@ -37,10 +38,10 @@ const Navbar = () => {
         </div>
         {/* Icons Section */}
         <div className=' hidden md:flex gap-6 '>
-          <BsPersonExclamation className='text-2xl  hover:scale-110' />
-          <CiSearch className='text-2xl hover:scale-110' />
-          <CiHeart className='text-2xl hover:scale-110' />
-          <IoCartOutline className='text-2xl hover:scale-110' />
+          <Link href={'/myaccount'}><BsPersonExclamation className='text-2xl  hover:scale-110' /></Link>
+          <Link href={''}><CiSearch className='text-2xl hover:scale-110' /></Link>
+          <Link href={''}><CiHeart className='text-2xl hover:scale-110' /></Link>
+          <Link href={'/cart'}><IoCartOutline className='text-2xl hover:scale-110' /></Link>
         </div>
       </div>
       <div className={`${!menuOpen?'opacity-0':'opacity-100'} transition-all duration-500 ease-in-out bg-slate-100 md:h-auto`}>

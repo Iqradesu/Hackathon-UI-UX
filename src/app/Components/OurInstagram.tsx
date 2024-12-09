@@ -8,7 +8,7 @@ const OurInstagram: React.FC = () => {
         <h4 className="text-5xl font-bold">Our Instagram</h4>
         <p className="mt-2">Follow our store on Instagram</p>
         <Link href={''}>
-          <button className="mt-6 px-14 py-2 bg-[#F4F4F4] rounded-full hover:bg-slate-300 transform transition duration-500 shadow-xl">
+          <button className="mt-6 px-14 py-2 bg-[#F4F4F4] rounded-full hover:bg-slate-300 transform transition duration-500 shadow-xl ">
             Follow Us
           </button>
         </Link>

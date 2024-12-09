@@ -14,10 +14,10 @@ const features = [
 ];
 
 const FeatureSection = () => (
-  <div className="h-[300px] bg-[#FAF4F4] w-full flex justify-center items-center px-20 gap-10">
+  <div className="grid grid-cols-1 h-[350px] bg-[#FAF4F4] w-full md:flex md:justify-center items-center px-4 py-2 md:px-20 gap-10">
     {features.map((feature, index) => (
       <div key={index}>
-        <h4 className="text-3xl font-bold">{feature.title}</h4>
+        <h4 className=" text-xl md:text-3xl font-bold">{feature.title}</h4>
         <p className="text-slate-600 text-sm mt-2">{feature.description}</p>
       </div>
     ))}

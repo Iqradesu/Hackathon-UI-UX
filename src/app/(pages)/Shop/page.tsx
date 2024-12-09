@@ -1,4 +1,4 @@
-import Header from '../../Components/Header'
+import Header from '../../Components/HeroSection'
 import React from 'react'
 import Navbar from '../../Components/Navbar'
 import ItemList from '../../Components/Shop'
@@ -8,7 +8,7 @@ const about = () => {
   return (
     <section>
       <Navbar />
-      <Header title='About' />
+      <Header title='Shop' />
       <ItemList />
       <FeatureSection />
       <Footer />

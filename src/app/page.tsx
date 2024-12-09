@@ -38,7 +38,7 @@ const page = () => {
     ))}
   </div>
 </div>
-    <TopPicks text='Top picks for you' />
+    <TopPicks text='Top picks for you' Information='Find a bright ideal to suit your taste with our great selection of suspension, floor and table lights.' />
     <NewArrivals />
     <OurBlogs />
     <OurInstagram />

@@ -1,46 +1,59 @@
-import React from 'react'
-import Link from 'next/link'
-const Footer = () => {
-  return (
-    <footer className="max-w-[1440px] w-full mx-auto h-[350px] px-20 py-10">
-      {/* footer information */}
-      <div className="lg:flex justify-around h-[90%]">
+'use client'
+import Link from "next/link";
+import {Links,IconLinks,Help} from '../data'
+import Btn from "./ViewNowButton";
+import { usePathname } from "next/navigation";
 
-          <div className='text-slate-400'>400 University Drive Suite 200 Coral Gables,<br />
-               FL 33134 USA
-          </div>
-          {/* links */}
-          <nav className="flex flex-col gap-5">
-            <h4 className='text-slate-400'>Links</h4>
-              <Link href='/'>Home</Link>
-              <Link href='/shop'>Shop</Link>
-              <Link href=''>About</Link>
-              <Link href='/contact'>Contact</Link>
-          </nav>
-          {/* Help */}
-          <nav className="flex flex-col gap-5">
-            <h4 className='text-slate-400'>Help</h4>
-              <Link href='/shop'>Payment Options</Link>
-              <Link href='/'>Returns</Link>
-              <Link href=''>Privacy Policies</Link>
-          </nav>
-          {/* Newsletter */}
-          <form action="">
-            <h4 className='text-slate-400 mb-4 '>Newsletter</h4>
-            <input type="email" className='outline-none border-b border-b-black' placeholder="Enter Your Email Address"/>
-            <input type="submit" value="Subscribe" />
-          </form>
+
+
+export default function Footer() {
+  const pathname = usePathname();
+
+ return (
+   <footer className=" bg-white sm:pt-20 pt-10 sm:px-20 px-10 ">
+    <section className="grid grid-cols-1 lg:grid-cols-[70%_30%]">
+      <div className="grid grid-cols-2 sm:grid-cols-3 ">
+        <div className="flex flex-col gap-4 mb-10">
+          <h1 className="font-semibold opacity-50">Links</h1>
+          <ul className="flex flex-col gap-2">
+            {Links.map((link,index)=>{
+              return <li key={index}><Link className={` capitalize font-semibold border-b ${pathname===link.pathLink?'border-b-black ':'hover:border-b-black border-transparent'} transition-all duration-300 `} href={link.pathLink}>{link.pathname}</Link></li>
+            })}
+          </ul>
+        </div>
+        <div className="flex flex-col gap-4 mb-10">
+          <h1 className="font-semibold opacity-50">Users</h1>
+          <ul className="flex flex-col gap-2">
+            {IconLinks.map((link,index)=>{
+              return <li key={index}><Link className={`capitalize font-semibold border-b ${pathname===link.pathLink?'border-b-black ':'hover:border-b-black border-transparent'} transition-all duration-300`} href={link.pathLink}>{link.pathname}</Link></li>
+            })}
+          </ul>
+        </div>
+        <div className="flex flex-col gap-4 mb-10">
+          <h1 className="font-semibold opacity-50">Help</h1>
+          <ul className="flex flex-col gap-2">
+            {Help.map((link,index)=>{
+              return <li key={index}><Link className={`capitalize font-semibold border-b ${pathname===link.pathLink?'border-b-black ':'hover:border-b-black border-transparent'} transition-all duration-300`} href={link.pathLink}>{link.pathname}</Link></li>
+            })}
+          </ul>
+        </div>
       </div>
-
-      
-
-      {/* copyright section */}
-
-      <div className='border-t-2'>
-        2022 Meubel House. All rights reverved
-      </div>
-    </footer>
-  )
+     <div className="w-full mt-10 flex flex-col justify-center">
+     <h1 className="font-semibold opacity-50">News Letter</h1>
+     <div className="my-5 grid grid-cols-[68%_2%_30%] gap- w-full  relative ">
+      <input type="text" placeholder="Enter Your Email Address" className="border-b-2 border-b-black outline-none bg-transparent"/>
+      <span></span>
+      <Btn text={'Subscribe'}  />
+     </div>
+      <p className="opacity-50 my-5">
+      400 University Drive Suite 200 Coral Gables,<br />
+      FL 33134 USA
+      </p>
+     </div>
+    </section>
+    <aside className="my-10 px-10 py-4 border-t  ">
+      <span>2022 Meubel House. All rights reverved</span>
+    </aside>
+   </footer>
+ )
 }
-
-export default Footer

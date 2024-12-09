@@ -25,9 +25,10 @@ const MenuOverlay = ({ links }: { links: Link[] }) => {
             )
           })}
         </ul>
-        <div className='flex justify-center my-2 gap-3'><CiHeart className="text-2xl text-black hover:scale-110" />
-        <IoCartOutline className="text-2xl text-black hover:scale-110" />
-        <BsPersonExclamation className='text-2xl text-black hover:scale-110'/>
+        <div className='flex justify-center my-2 gap-2'>
+        <Link href={''}><CiHeart className="text-2xl text-black hover:scale-110" /></Link>
+        <Link href={'/cart'}><IoCartOutline className="text-2xl text-black hover:scale-110" /></Link>
+        <Link href={'/myaccount'}><BsPersonExclamation className='text-2xl text-black hover:scale-110'/></Link>
         </div>
     </div>
     </section>
