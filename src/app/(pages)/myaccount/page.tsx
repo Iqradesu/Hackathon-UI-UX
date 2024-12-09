@@ -3,7 +3,6 @@ import Footer from '@/app/Components/Footer'
 import HeroSection from '@/app/Components/HeroSection'
 import Navbar from '@/app/Components/Navbar'
 import React from 'react'
-import InputBox from '@/app/Components/textarea'
 
 const signup = () => {
   return (
