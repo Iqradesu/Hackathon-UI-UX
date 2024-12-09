@@ -3,9 +3,7 @@ import React from 'react'
 import Navbar from '../../Components/Navbar'
 import ItemList from '../../Components/Shop'
 import Footer from '../../Components/Footer'
-import FeatureSection from '../../Components/FeatureSection'
-import { IoMdSwitch } from "react-icons/io";
-import { TbGridDots } from "react-icons/tb";
+import FeatureSection from '../../Components/FeatureSection';
 const about = () => {
   return (
     <section>
