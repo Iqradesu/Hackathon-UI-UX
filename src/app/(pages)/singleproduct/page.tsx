@@ -1,4 +1,4 @@
-import Navbar from '@/Components/Navbar'
+import Navbar from './Components/Navbar'
 import React from 'react'
 import { IoIosArrowForward } from "react-icons/io";
 import Image from 'next/image';
