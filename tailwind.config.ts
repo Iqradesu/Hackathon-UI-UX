@@ -8,6 +8,9 @@ export default {
   ],
   theme: {
     extend: {
+      backgroundImage:{
+        "bannerImg": "url('/instagram.png')",
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
