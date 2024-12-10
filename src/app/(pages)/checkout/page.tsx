@@ -11,7 +11,7 @@ const page = () => {
     <section>
         <Navbar/>
         <HeroSection title={"Checkout"}/>
-        <div className="mx-4 sm:mx-0 md:mx-16 lg:mx-40 my-16 overflow-x-hidden">
+        <div className="mx-4  md:mx-16 lg:mx-40 my-16 overflow-x-hidden">
   <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 lg:gap-32">
     <div className="grid grid-cols-2 gap-4">
       <h2 className="text-3xl font-bold">Billing Details</h2>

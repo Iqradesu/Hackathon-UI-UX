@@ -32,7 +32,8 @@ const ItemList: React.FC = () => {
     <div className='grid  grid-cols-2 md:grid-cols-3 lg:grid-cols-4 '>
       {items.map((item, index) => (
         <div key={index} className=' p-2 mx-5 my-5 rounded-lg md:hover:scale-105 transition transform duration-500 md:hover:shadow-xl z-10' >
-          <Image src={item.imageSrc} alt={item.description} width={500} height={500} className='w-[200px] h-[200px]  md:w-[250px] md:h-[250px]'></Image>
+          {/* navigating to single product page by clicking on single product page,(not dynamic routing)*/}
+          <Link href={'/singleproduct'}><Image src={item.imageSrc} alt={item.description} width={500} height={500} className='w-[200px] h-[200px]  md:w-[250px] md:h-[250px]'></Image></Link>
           <p className='text-sm'>{item.description}</p>
           <p className='text-lg font-semibold'>{item.price}</p>
         </div>
