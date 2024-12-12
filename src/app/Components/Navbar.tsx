@@ -1,15 +1,15 @@
 'use client'
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import React from 'react';
 import Navlinks from './Navlinks';
 import { CiSearch, CiHeart } from "react-icons/ci";
-import { IoCartOutline } from "react-icons/io5";
 import { BsPersonExclamation } from "react-icons/bs";
 import { HiMiniBars3 } from "react-icons/hi2";
 import { FaXmark } from "react-icons/fa6";
 import MenuOverlay from './MenuOverlay';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
+import Cartsidebar from './cartsidebar';
 const navLinks = [
   { href: '/', title: "Home" },
   { href: '/Shop', title: "Shop" },
@@ -19,9 +19,31 @@ const navLinks = [
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const pathname=usePathname()
+  const pathname=usePathname();
+  const headerRef = useRef<HTMLDivElement>(null);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+        if (headerRef.current) {
+          const height = headerRef.current.getBoundingClientRect().height;
+          if (window.scrollY > height) {
+            setScrolled(true);
+          } else {
+            setScrolled(false);
+          }
+        }
+      
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+
+
   return (
-    <section className={`${pathname==='/'?'fixed':'relative'} w-full py-2 md:py-6 px-10 lg:px-10 bg-white md:bg-transparent z-50 `}>
+    <section ref={headerRef} className={`${pathname==='/'?'fixed':'relative'} w-full py-2 md:py-6 px-10 top-0 left-0 ${scrolled?'bg-white':'bg-transparent'} transition-all duration-700 z-50 `}>
       <div className='flex md:justify-center justify-end items-center gap-10 '>
         <ul className=' hidden md:flex gap-8'>
           {navLinks.map((link, index) => (
@@ -41,7 +63,7 @@ const Navbar = () => {
           <Link href={'/myaccount'}><BsPersonExclamation className='text-2xl  hover:scale-110' /></Link>
           <Link href={''}><CiSearch className='text-2xl hover:scale-110' /></Link>
           <Link href={''}><CiHeart className='text-2xl hover:scale-110' /></Link>
-          <Link href={'/cart'}><IoCartOutline className='text-2xl hover:scale-110' /></Link>
+          <Cartsidebar />
         </div>
       </div>
       <div className={`${!menuOpen?'opacity-0':'opacity-100'} transition-all duration-500 ease-in-out bg-slate-100 md:h-auto`}>

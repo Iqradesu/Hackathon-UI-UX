@@ -2,9 +2,9 @@ import React from 'react'
 import Link from 'next/link' 
 import { CiSearch } from "react-icons/ci";
 import { CiHeart } from "react-icons/ci";
-import { IoCartOutline } from "react-icons/io5";
 import Navlinks from './Navlinks';
 import { BsPersonExclamation } from "react-icons/bs";
+import Cartsidebar from './cartsidebar';
 interface Link {
   href: string;
   title: string;
@@ -27,7 +27,7 @@ const MenuOverlay = ({ links }: { links: Link[] }) => {
         </ul>
         <div className='flex justify-center my-2 gap-2'>
         <Link href={''}><CiHeart className="text-2xl text-black hover:scale-110" /></Link>
-        <Link href={'/cart'}><IoCartOutline className="text-2xl text-black hover:scale-110" /></Link>
+        <Cartsidebar/>
         <Link href={'/myaccount'}><BsPersonExclamation className='text-2xl text-black hover:scale-110'/></Link>
         </div>
     </div>
